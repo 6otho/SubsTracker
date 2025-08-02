@@ -3297,39 +3297,66 @@ async function sendEmailNotification(title, content, config) {
     // 生成HTML邮件内容
     const htmlContent = `
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>${title}</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; background-color: #f5f5f5; }
-        .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px 20px; text-align: center; }
-        .header h1 { color: white; margin: 0; font-size: 24px; }
-        .content { padding: 30px 20px; }
-        .content h2 { color: #333; margin-top: 0; }
-        .content p { color: #666; line-height: 1.6; margin: 16px 0; }
-        .footer { background-color: #f8f9fa; padding: 20px; text-align: center; color: #666; font-size: 14px; }
-        .highlight { background-color: #e3f2fd; padding: 15px; border-radius: 8px; margin: 20px 0; }
-        .button { display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; margin: 20px 0; }
+    <style type="text/css">
+        /* 响应式设计，针对移动端 */
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 100% !important;
+            }
+        }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>📅 ${title}</h1>
-        </div>
-        <div class="content">
-            <div class="highlight">
-                ${content.replace(/\n/g, '<br>')}
-            </div>
-            <p>此邮件由订阅管理系统自动发送，请及时处理相关订阅事务。</p>
-        </div>
-        <div class="footer">
-            <p>订阅管理系统 | 发送时间: ${formatBeijingTime()}</p>
-        </div>
-    </div>
+<body style="margin: 0; padding: 0; background-color: #f5f5f5;">
+    <center>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+            <tr>
+                <td align="center">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" class="container" style="max-width: 600px; background-color: #ffffff; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                        
+                        <tr>
+                            <td align="center" style="background-color: #667eea; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px 20px;">
+                                <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-weight: bold;">
+                                            📅 ${title}
+                                        </h1>
+                                </td>
+                        </tr>
+
+                        <tr>
+                            <td align="left" style="padding: 30px 20px; background-color: #ffffff;">
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td style="background-color: #e3f2fd; padding: 15px; border-radius: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 16px; color: #333333; line-height: 1.6;">
+                                            ${content.replace(/\n/g, '<br>')}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 20px 0 0 0;">
+                                            <p style="color: #666666; line-height: 1.6; margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 16px;">
+                                                此邮件由订阅管理系统自动发送，请及时处理相关订阅事务。
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="center" style="background-color: #f8f9fa; padding: 20px; text-align: center; color: #666666; font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
+                                订阅管理系统 | 发送时间: ${formatBeijingTime()}
+                            </td>
+                        </tr>
+
+                    </table>
+                    </td>
+            </tr>
+        </table>
+    </center>
 </body>
 </html>`;
 
