@@ -3312,11 +3312,11 @@ async function sendEmailNotification(title, content, config) {
         }
     </style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #a1c4fd; background: linear-gradient(to bottom, #a1c4fd 0%, #c2e9fb 100%);">
+<body style="margin: 0; padding: 0; background-color: #f5f5f5;">
     <center>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
             <tr>
-                <td align="center" style="padding: 20px 0;">
+                <td align="center">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" class="container" style="max-width: 600px; background-color: #ffffff; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                         
                         <tr>
