@@ -3310,21 +3310,9 @@ async function sendEmailNotification(title, content, config) {
                 width: 100% !important;
             }
         }
-        
-        /* 地址高亮样式 */
-        .address-highlight {
-            background-color: #e3f2fd;
-            border: 1px solid #4da6ff;
-            padding: 8px 12px;
-            border-radius: 4px;
-            display: inline-block;
-            font-weight: bold;
-            color: #0066cc;
-            margin: 5px 0;
-        }
     </style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #4da6ff; background: linear-gradient(135deg, #4da6ff 0%, #0066cc 100%);">
+<body style="margin: 0; padding: 0; background-color: #a1c4fd; background: linear-gradient(to bottom, #a1c4fd 0%, #c2e9fb 100%);">
     <center>
         <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
             <tr>
@@ -3332,7 +3320,7 @@ async function sendEmailNotification(title, content, config) {
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" class="container" style="max-width: 600px; background-color: #ffffff; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                         
                         <tr>
-                            <td align="center" style="background: linear-gradient(135deg, #0066cc 0%, #004d99 100%); padding: 30px 20px;">
+                            <td align="center" style="background-color: #667eea; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px 20px;">
                                 <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-weight: bold;">
                                             📅 ${title}
                                         </h1>
@@ -3343,7 +3331,7 @@ async function sendEmailNotification(title, content, config) {
                             <td align="left" style="padding: 30px 20px; background-color: #ffffff;">
                                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                     <tr>
-                                        <td style="background-color: #e6f2ff; padding: 15px; border-radius: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 16px; color: #333333; line-height: 1.6;">
+                                        <td style="background-color: #e3f2fd; padding: 15px; border-radius: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 16px; color: #333333; line-height: 1.6;">
                                             ${content.replace(/\n/g, '<br>')}
                                         </td>
                                     </tr>
@@ -3359,7 +3347,7 @@ async function sendEmailNotification(title, content, config) {
                         </tr>
 
                         <tr>
-                            <td align="center" style="background: linear-gradient(135deg, #e6f2ff 0%, #c2e0ff 100%); padding: 20px; text-align: center; color: #0066cc; font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-weight: bold;">
+                            <td align="center" style="background-color: #f8f9fa; padding: 20px; text-align: center; color: #666666; font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
                                 订阅管理系统 | 发送时间: ${formatBeijingTime()}
                             </td>
                         </tr>
