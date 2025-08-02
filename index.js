@@ -3302,184 +3302,54 @@ async function sendEmailNotification(title, content, config) {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>重要通知邮件</title>
+    <title>${title}</title>
     <style type="text/css">
-        /* 基础样式 */
-        body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            background-color: #667eea;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            border-collapse: collapse;
-            mso-table-lspace: 0pt;
-            mso-table-rspace: 0pt;
-        }
-        
-        /* 渐变头部 */
-        .header {
-            background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
-            padding: 30px 20px;
-            text-align: center;
-        }
-        
-        .header h1 {
-            color: #ffffff;
-            margin: 0;
-            font-size: 28px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-        
-        /* 内容区域 */
-        .content {
-            padding: 30px 20px;
-            background-color: #ffffff;
-        }
-        
-        .message-box {
-            background-color: #e3f2fd;
-            padding: 20px;
-            border-radius: 8px;
-            font-size: 16px;
-            color: #333333;
-            line-height: 1.6;
-            border-left: 4px solid #4b6cb7;
-        }
-        
-        /* 地址高亮样式 */
-        .highlight-address {
-            background-color: #e3f2fd;
-            border: 1px dashed #4b6cb7;
-            padding: 10px 15px;
-            margin: 15px 0;
-            border-radius: 6px;
-            font-weight: bold;
-            color: #1a237e;
-            display: inline-block;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .address-label {
-            font-weight: bold;
-            color: #4b6cb7;
-            display: block;
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
-        
-        /* 页脚 */
-        .footer {
-            background-color: #f8f9fa;
-            padding: 20px;
-            text-align: center;
-            color: #666666;
-            font-size: 14px;
-            border-top: 1px solid #e0e0e0;
-        }
-        
-        /* 按钮样式 */
-        .action-button {
-            display: inline-block;
-            background: linear-gradient(to right, #4b6cb7, #667eea);
-            color: white;
-            text-decoration: none;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: bold;
-            margin: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(75, 108, 183, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .action-button:hover {
-            background: linear-gradient(to right, #3a56a0, #5568d8);
-            box-shadow: 0 6px 20px rgba(75, 108, 183, 0.4);
-            transform: translateY(-2px);
-        }
-        
-        /* 响应式设计 */
+        /* 响应式设计，针对移动端 */
         @media only screen and (max-width: 600px) {
             .container {
                 width: 100% !important;
             }
-            
-            .header h1 {
-                font-size: 22px;
-            }
-            
-            .content {
-                padding: 20px 15px;
-            }
-            
-            .message-box {
-                padding: 15px;
-            }
+        }
+        
+        /* 地址高亮样式 */
+        .address-highlight {
+            background-color: #e3f2fd;
+            border: 1px solid #4da6ff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: inline-block;
+            font-weight: bold;
+            color: #0066cc;
+            margin: 5px 0;
         }
     </style>
 </head>
-<body>
+<body style="margin: 0; padding: 0; background-color: #4da6ff; background: linear-gradient(135deg, #4da6ff 0%, #0066cc 100%);">
     <center>
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
             <tr>
-                <td align="center" style="padding: 40px 20px;">
-                    <!-- 主容器 -->
-                    <table class="container" border="0" cellpadding="0" cellspacing="0" width="100%">
-                        <!-- 头部 -->
+                <td align="center" style="padding: 20px 0;">
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" class="container" style="max-width: 600px; background-color: #ffffff; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                        
                         <tr>
-                            <td class="header">
-                                <h1>📬 重要通知邮件</h1>
-                            </td>
+                            <td align="center" style="background: linear-gradient(135deg, #0066cc 0%, #004d99 100%); padding: 30px 20px;">
+                                <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-weight: bold;">
+                                            📅 ${title}
+                                        </h1>
+                                </td>
                         </tr>
 
-                        <!-- 内容区域 -->
                         <tr>
-                            <td class="content">
-                                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <td align="left" style="padding: 30px 20px; background-color: #ffffff;">
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                     <tr>
-                                        <td style="padding-bottom: 20px;">
-                                            <p style="color: #444; margin: 0 0 15px 0; font-size: 16px;">尊敬的客户：</p>
-                                            <p style="color: #444; margin: 0;">感谢您订阅我们的服务。以下是您的重要通知信息：</p>
+                                        <td style="background-color: #e6f2ff; padding: 15px; border-radius: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 16px; color: #333333; line-height: 1.6;">
+                                            ${content.replace(/\n/g, '<br>')}
                                         </td>
                                     </tr>
-                                    
                                     <tr>
-                                        <td class="message-box">
-                                            <p>您的订阅服务将于 <strong>2023年12月31日</strong> 到期。</p>
-                                            <p>为了确保服务不中断，请及时续订您的服务。</p>
-                                            <p>如有任何问题，请联系我们的客服团队。</p>
-                                            
-                                            <!-- 地址高亮区域 -->
-                                            <div style="margin: 25px 0;">
-                                                <span class="address-label">重要地址信息：</span>
-                                                <div class="highlight-address">
-                                                    📍 北京市朝阳区建国路88号<br>
-                                                    🏢 国际金融中心A座15层<br>
-                                                    📞 客服电话: 400-123-4567
-                                                </div>
-                                            </div>
-                                            
-                                            <p>请在截止日期前完成续订，以免影响您的服务使用。</p>
-                                        </td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td align="center" style="padding: 25px 0 15px 0;">
-                                            <a href="#" class="action-button">立即续订服务</a>
-                                        </td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td style="padding-top: 20px;">
-                                            <p style="color: #666; line-height: 1.6; margin: 0;">
+                                        <td style="padding: 20px 0 0 0;">
+                                            <p style="color: #666666; line-height: 1.6; margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 16px;">
                                                 此邮件由订阅管理系统自动发送，请及时处理相关订阅事务。
                                             </p>
                                         </td>
@@ -3488,14 +3358,14 @@ async function sendEmailNotification(title, content, config) {
                             </td>
                         </tr>
 
-                        <!-- 页脚 -->
                         <tr>
-                            <td class="footer">
-                                订阅管理系统 | 发送时间: 2023年10月15日 14:30:25
+                            <td align="center" style="background: linear-gradient(135deg, #e6f2ff 0%, #c2e0ff 100%); padding: 20px; text-align: center; color: #0066cc; font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-weight: bold;">
+                                订阅管理系统 | 发送时间: ${formatBeijingTime()}
                             </td>
                         </tr>
+
                     </table>
-                </td>
+                    </td>
             </tr>
         </table>
     </center>
